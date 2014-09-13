@@ -25,15 +25,12 @@
     </div>
 
     <div class="col-xs-5">
-      <h5>You've made {{ guesses.length }} guesses</h5>
-
-      <div>
-        <p>Guessed letters: </p>
-        {{ guesses }}
+      <div class="the-word">
+        <h1 ng-show="correct" ng-repeat="character in words[0] track by $index" class="submittedWord">{{ character }}</h1><br>
       </div>
 
-      <div ng-repeat="letter in letters">
-        <button ng-model="letter" ng-click="playerEntry(letter)" id="letter-btn"class="btn btn-primary">{{ letter }}</button>
+      <div ng-repeat="letter in letters" class="group-of-buttons">
+        <button ng-model="letter" ng-click="playerEntry(letter)" id="letter-btn" class="btn btn-primary">{{ letter }}</button>
       </div>
     </div>
 
@@ -43,8 +40,9 @@
 
   <div class="row">
 
-    <p>Submitted Word: </p>
-    {{ words[0] }}
+    <h5>You've made {{ guesses.length }} guesses</h5>
+    <p>Guessed letters: </p>
+    <span ng-repeat="guess in guesses"> {{ guess }} </span>
 
     <p>Correct guesses: </p>
     {{ point }}

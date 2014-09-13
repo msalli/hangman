@@ -9,6 +9,7 @@ hangmanApp.controller("IndexCtrl", [
     $scope.guesses = [];
     $scope.words = [];
     $scope.point = 0;
+    $scope.correct = false;
     $scope.saveWord = function(word) {
       $scope.words.push(word.toLowerCase().split(""));
       console.log("THIS IS THE WORDS 0", $scope.words[0]);
@@ -25,7 +26,7 @@ hangmanApp.controller("IndexCtrl", [
       _results = [];
       while (i < $scope.words[0].length) {
         if ($scope.words[0][i] === letter) {
-          $scope.point += 1;
+          $scope.point += 1 && ($scope.correct = true);
         }
         _results.push(i++);
       }

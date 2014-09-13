@@ -15,6 +15,8 @@ hangmanApp.controller "IndexCtrl", [ '$scope', ($scope) ->
 
   $scope.point = 0
 
+  $scope.correct = false
+
   #save word from first player
   $scope.saveWord = (word) ->
     #split string into characters
@@ -33,7 +35,7 @@ hangmanApp.controller "IndexCtrl", [ '$scope', ($scope) ->
 
     i = 0
     while i < $scope.words[0].length
-      $scope.point += 1  if $scope.words[0][i] == letter
+      $scope.point += 1  && $scope.correct = true if $scope.words[0][i] == letter
       i++
 
 
