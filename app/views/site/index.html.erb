@@ -1,0 +1,55 @@
+<div ng-controller="IndexCtrl">
+
+<div class="container">
+  <div class="row" id="topRow">
+    <div class="col-xs-6 col-xs-offset-3">
+      <form ng-submit="saveWord(word)" class="form-group">
+        <label for="enterWord">Start your game, enter a word!</label>
+        <input type="text" ng-model="word" id="enterWord" class="form-control" placeholder="Enter a word!">
+       <button class="btn btn-primary">Save Word!</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <svg height="500" width="500" class="svg">
+        <polyline points="250,100 250,50 50,50 50,450 350,450" z-index="1" style="fill:none; stroke:black; stroke-width: 10" />
+        <circle cx="250" cy="141" r="40" z-index="2" style="fill:none; stroke:black; stroke-width: 3"/>
+        <polyline points="250,180 221,340" style="fill:none; stroke:black; stroke-width: 5" />
+        <polyline points="243,215 190,290" style="fill:none; stroke:black; stroke-width: 3" />
+        <polyline points="243,215 300,290" style="fill:none; stroke:black; stroke-width: 3" />
+        <polyline points="223,337 150,400" style="fill:none; stroke:black; stroke-width: 3" />
+        <polyline points="223,338 300,400" style="fill:none; stroke:black; stroke-width: 3" />
+      </svg>
+    </div>
+
+    <div class="col-xs-5">
+      <h5>You've made {{ guesses.length }} guesses</h5>
+
+      <div>
+        <p>Guessed letters: </p>
+        {{ guesses }}
+      </div>
+
+      <div ng-repeat="letter in letters">
+        <button ng-model="letter" ng-click="playerEntry(letter)" id="letter-btn"class="btn btn-primary">{{ letter }}</button>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <div class="row">
+
+    <p>Submitted Word: </p>
+    {{ words[0] }}
+
+    <p>Correct guesses: </p>
+    {{ point }}
+  </div>
+
+</div>
+
+</div>
